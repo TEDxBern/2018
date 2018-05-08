@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "styled-components": "^3.2.6",
+    "zwui": "0.0.19"
+  },
+  "devDependencies": {
+    "enzyme": "latest",
+    "enzyme-adapter-react-16": "latest",
+    "jest": "latest",
+    "react-addons-test-utils": "latest",
+    "react-test-renderer": "latest"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "build-and-start": "next build && next start",
+    "test": "NODE_ENV=test jest --watchAll"
+  }
+}
