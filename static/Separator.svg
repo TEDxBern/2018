@@ -1,0 +1,16 @@
+<svg width="1440" height="1540" viewBox="0 0 1440 1540" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.48474e-07 0V254.197L1123.43 1379.39V1133.92L1.48474e-07 0Z" transform="matrix(0.856663 -0.515877 0.515343 0.856984 -535 934.475)" fill="#F15F62" stroke="#171B1C" stroke-width="5.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M235.397 0H1.48474e-07L1123.43 1137.66L1246.73 1014.3L235.397 0Z" transform="matrix(0.856663 -0.515877 0.515343 0.856984 -535 934.475)" fill="url(#paint0_linear)" stroke="black" stroke-width="5.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 1275.97V1034.23L1030.02 3.80269e-05L1160.79 118.376L0 1275.97Z" transform="matrix(0.856663 -0.515877 0.515343 0.856984 480.697 443.557)" fill="url(#paint1_linear)" stroke="black" stroke-width="5.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M1381.24 3.80269e-05H1160.79L0 1157.59H256.57L1381.24 3.80269e-05Z" transform="matrix(0.856663 -0.515877 0.515343 0.856984 541.701 545.003)" fill="#F15F62" stroke="#171B1C" stroke-width="5.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+<defs>
+<linearGradient id="paint0_linear" x2="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(645.246 -321.043) scale(1208.45 1209.01) rotate(45)">
+<stop stop-color="#F15F62"/>
+<stop offset="1" stop-color="#90D5E3"/>
+</linearGradient>
+<linearGradient id="paint1_linear" x2="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1641.07 651.673) scale(1609.01 1609.76) rotate(135)">
+<stop stop-color="#F15F62"/>
+<stop offset="1" stop-color="#90D5E3"/>
+</linearGradient>
+</defs>
+</svg>

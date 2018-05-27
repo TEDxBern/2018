@@ -27,6 +27,8 @@ export default class SiteDocument extends Document {
               __html: `
             body {
               font-family: "Roboto", "Helvetica", sans-serif;
+
+              background: linear-gradient(180deg, #F15F62 0%, #90D5E3 36.56%, #8BA3CF 66.37%, #FBB15E 100%);
             }
             * {
               margin: 0;
