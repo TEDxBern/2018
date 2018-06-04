@@ -2,7 +2,7 @@ import React, {Component} from "react"
 import styled from "styled-components"
 import {ParallaxProvider} from "react-scroll-parallax"
 
-import {Text, Venue, Speakers} from "../segments"
+import {Text, Venue, Speakers, Footer} from "../segments"
 import {RetrieveAirtableRecords} from "../container"
 import {
   HeaderMotiv,
@@ -126,6 +126,7 @@ export default class extends Component {
           <Venue {...{texts, images}} />
 
           {/* <Text text={texts.Impressum} /> */}
+          <Footer />
         </>
       </ParallaxProvider>
     )
