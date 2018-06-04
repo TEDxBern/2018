@@ -4,12 +4,11 @@ import {Parallax} from "react-scroll-parallax"
 
 const acceleration = 200
 const Img = styled.img`
-  width: 100%;
-  height: 100%;
-  ${props => (props.flipped ? `transform: scaleX(-1);` : null)};
+  margin: 10px 0 0 -380px;
+  width: 200px;
 `
 
-export class Separator2 extends React.Component {
+export class HeaderMotiv extends React.Component {
   render() {
     return (
       <React.Fragment>
@@ -22,11 +21,11 @@ export class Separator2 extends React.Component {
           styleOuter={{
             position: "absolute",
             zIndex: 200,
-            left: 0,
-            width: "100%"
+            left: "50%"
+            // width: "100%"
           }}
         >
-          <Img {...this.props} src="/static/Separator2.svg" />
+          <Img {...this.props} src="/static/HeaderMotiv.svg" />
         </Parallax>
       </React.Fragment>
     )

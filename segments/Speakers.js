@@ -17,6 +17,7 @@ export class Speakers extends React.Component {
             render={records =>
               records.map((record, index) => (
                 <Speaker
+                  key={index}
                   name={record.get("Name")}
                   title={record.get("Job Title")}
                   bio={record.get("Short Bio")}

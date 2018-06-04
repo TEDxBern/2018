@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   position: relative;
   z-index: 300;
 
-  margin-bottom: 12px;
+  margin-bottom: 24px;
 
   border: 3px solid black;
   color: black;
@@ -69,7 +69,9 @@ export class Speaker extends React.Component {
           <Bio>{this.props.bio}</Bio>
           {this.props.link && (
             <div>
-              <Button href={this.props.link}>Mehr erfahren</Button>
+              <Button target="_blank" href={this.props.link}>
+                Mehr erfahren
+              </Button>
             </div>
           )}
         </Info>

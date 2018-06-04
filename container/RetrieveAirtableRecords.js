@@ -25,7 +25,9 @@ export class RetrieveAirtableRecords extends React.Component {
           if (error) {
             this.setState({loading: false, error: true})
           } else {
-            this.setState({loading: false})
+            this.setState({loading: false}, () => {
+              this.props.onSuccess && this.props.onSuccess(this.state.records)
+            })
           }
         }
       )
@@ -37,7 +39,7 @@ export class RetrieveAirtableRecords extends React.Component {
     } else if (this.state.error) {
       return "Ein Fehler ist aufgetreten!"
     } else {
-      return this.props.render(this.state.records)
+      return this.props.render ? this.props.render(this.state.records) : null
     }
   }
 }
