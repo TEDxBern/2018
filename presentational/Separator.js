@@ -1,5 +1,5 @@
 import React from "react"
-import styled from "styled-components"
+import styled, {injectGlobal} from "styled-components"
 import {Parallax} from "react-scroll-parallax"
 
 const acceleration = 200
@@ -10,19 +10,28 @@ const Img = styled.img`
   ${"" /* height: 250px; */};
 `
 
+injectGlobal`
+  .parallaxOuter--Separator {
+    z-index: 0;
+
+    @media screen and (min-width: 1170px) {
+      z-index: 200;
+    }
+  }
+`
+
 export class Separator extends React.Component {
   render() {
     return (
       <React.Fragment>
         <Parallax
-          className="custom-class"
+          className="parallaxOuter--Separator"
           offsetYMax={0}
           offsetYMin={acceleration * -1}
           slowerScrollRate={false}
           tag="figure"
           styleOuter={{
             position: "absolute",
-            zIndex: 200,
             left: 0,
             width: "100%"
           }}

@@ -22,24 +22,34 @@ const SiteTitle = styled.h1`
   z-index: 100;
 
   box-sizing: border-box;
-  max-width: 480px;
+  margin: 64px 24px 0 24px;
+  padding: 64px 24px;
 
-  margin: 64px auto 0 auto;
-
-  padding: 128px 64px;
-  font-size: 64px;
+  font-size: 54px;
 
   border: 3px solid black;
   color: black;
   background-color: #fff;
+
+  text-transform: uppercase;
+
+  @media screen and (min-width: 660px) {
+    max-width: 480px;
+    margin: 64px auto 0 auto;
+    padding: 128px 64px;
+  }
 `
 const EventInfos = styled.div`
   position: relative;
   z-index: 300;
-  left: 50%;
+  margin: 24px 24px 0 24px;
 
-  max-width: 275px;
-  margin-top: -50px;
+  @media screen and (min-width: 660px) {
+    left: 50%;
+    max-width: 275px;
+    margin: -50px 0 0 0;
+  }
+
   padding: 12px;
 
   border: 3px solid black;
@@ -96,6 +106,7 @@ export default class extends Component {
     const everythingLoaded = textsLoaded && imagesLoaded
     return (
       <>
+        <Logo />
         <Spinner show={!everythingLoaded} />
         {everythingLoaded ? this.renderLoaded() : this.renderLoading()}
       </>
@@ -107,7 +118,6 @@ export default class extends Component {
       <ParallaxProvider>
         <Wrapper>
           <TriggerParallaxUpdate />
-          <Logo />
           <Separator />
           <HeaderMotiv />
           <SiteTitle>{texts.Claim}</SiteTitle>

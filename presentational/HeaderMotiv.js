@@ -1,5 +1,5 @@
 import React from "react"
-import styled from "styled-components"
+import styled, {injectGlobal} from "styled-components"
 import {Parallax} from "react-scroll-parallax"
 
 const acceleration = 200
@@ -8,12 +8,22 @@ const Img = styled.img`
   width: 200px;
 `
 
+injectGlobal`
+  .parallaxOuter--HeaderMotiv {
+    display: none;
+
+    @media screen and (min-width: 660px) {
+      display: block;
+    }
+  }
+`
+
 export class HeaderMotiv extends React.Component {
   render() {
     return (
       <React.Fragment>
         <Parallax
-          className="custom-class"
+          className="parallaxOuter--HeaderMotiv"
           offsetYMax={acceleration}
           offsetYMin={acceleration * -1}
           slowerScrollRate={false}

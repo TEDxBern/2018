@@ -4,6 +4,10 @@ import styled from "styled-components"
 
 import {Title, Segment, Speaker} from "../presentational"
 
+const Img = styled.img`
+  width: 22px;
+  margin-right: 24px;
+`
 const Outer = styled.div`
   position: relative;
   z-index: 500;
@@ -18,16 +22,26 @@ const Inner = styled.div`
   margin: 0 auto;
   padding: 0 12px;
 
-  display: flex;
-
   p {
+    padding-top: 16px;
+
     color: #fff;
   }
-`
 
-const Img = styled.img`
-  width: 22px;
-  margin-right: 24px;
+  @media screen and (min-width: 660px) {
+    display: flex;
+
+    p {
+      padding-top: 0;
+    }
+
+    p.middle {
+      flex: 1;
+      padding: 0 12px;
+
+      text-align: center;
+    }
+  }
 `
 
 export class Footer extends React.Component {
@@ -47,7 +61,7 @@ export class Footer extends React.Component {
                 <Img src="/static/Facebook.svg" />
               </a>
             </div>
-            <p style={{flex: 1, textAlign: "center"}}>
+            <p className="middle">
               This independent TEDx event is operated under license from TED.
             </p>
             <p style={{width: 160}}>
