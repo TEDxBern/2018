@@ -4,7 +4,7 @@ import {Parallax} from "react-scroll-parallax"
 
 const acceleration = 200
 const Img = styled.img`
-  margin: 10px 0 0 -380px;
+  margin: 120px 0 0 -380px;
   width: 200px;
 `
 
@@ -25,7 +25,7 @@ export class HeaderMotiv extends React.Component {
             // width: "100%"
           }}
         >
-          <Img {...this.props} src="/static/HeaderMotiv.svg" />
+          <Img {...this.props} src="/static/HeaderMotiv.png" />
         </Parallax>
       </React.Fragment>
     )

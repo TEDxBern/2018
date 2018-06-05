@@ -27,7 +27,7 @@ export class Separator extends React.Component {
             width: "100%"
           }}
         >
-          <Img src="/static/Separator.svg" />
+          <Img src="/static/Separator.png" />
         </Parallax>
       </React.Fragment>
     )

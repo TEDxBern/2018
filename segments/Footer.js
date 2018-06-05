@@ -5,8 +5,11 @@ import styled from "styled-components"
 import {Title, Segment, Speaker} from "../presentational"
 
 const Outer = styled.div`
+  position: relative;
+  z-index: 500;
+
   margin-top: 240px;
-  padding: 32px 0 200px 0;
+  padding: 32px 0 48px 0;
   background-color: #000;
   border-top: 4px solid #fff;
 `

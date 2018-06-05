@@ -26,7 +26,7 @@ export class Logo extends React.Component {
     return (
       <React.Fragment>
         <Wrapper>
-          <Img src="/static/TEDxBern.svg" />
+          <Img src="/static/TEDxBern.png" />
         </Wrapper>
       </React.Fragment>
     )

@@ -3,14 +3,15 @@ import styled from "styled-components"
 import {ParallaxProvider} from "react-scroll-parallax"
 
 import {Text, Venue, Speakers, Footer} from "../segments"
-import {RetrieveAirtableRecords} from "../container"
+import {RetrieveAirtableRecords, TriggerParallaxUpdate} from "../container"
 import {
   HeaderMotiv,
   Segment,
   Separator,
   Separator2,
   Logo,
-  Title
+  Title,
+  Spinner
 } from "../presentational"
 import {bold, primary} from "../presentational/definitions"
 
@@ -32,7 +33,6 @@ const SiteTitle = styled.h1`
   color: black;
   background-color: #fff;
 `
-
 const EventInfos = styled.div`
   position: relative;
   z-index: 300;
@@ -78,17 +78,35 @@ const Button = styled.a`
   }
 `
 
+const Wrapper = styled.div`
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+`
+
 export default class extends Component {
   state = {
     texts: {},
-    images: {}
+    textsLoaded: false,
+    images: {},
+    imagesLoaded: false
   }
   render() {
+    const {textsLoaded, imagesLoaded} = this.state
+    const everythingLoaded = textsLoaded && imagesLoaded
+    return (
+      <>
+        <Spinner show={!everythingLoaded} />
+        {everythingLoaded ? this.renderLoaded() : this.renderLoading()}
+      </>
+    )
+  }
+  renderLoaded() {
     const {texts, images} = this.state
     return (
       <ParallaxProvider>
-        {this.renderAirtableFetchers()}
-        <>
+        <Wrapper>
+          <TriggerParallaxUpdate />
           <Logo />
           <Separator />
           <HeaderMotiv />
@@ -127,11 +145,11 @@ export default class extends Component {
 
           {/* <Text text={texts.Impressum} /> */}
           <Footer />
-        </>
+        </Wrapper>
       </ParallaxProvider>
     )
   }
-  renderAirtableFetchers() {
+  renderLoading() {
     return (
       <>
         <RetrieveAirtableRecords
@@ -139,6 +157,7 @@ export default class extends Component {
           view="TextsList"
           onSuccess={records =>
             this.setState({
+              textsLoaded: true,
               texts: records.reduce(
                 (accumulator, record) => ({
                   ...accumulator,
@@ -154,6 +173,7 @@ export default class extends Component {
           view="ImagesList"
           onSuccess={records =>
             this.setState({
+              imagesLoaded: true,
               images: records.reduce(
                 (accumulator, record) => ({
                   ...accumulator,
