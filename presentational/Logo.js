@@ -26,7 +26,9 @@ export class Logo extends React.Component {
     return (
       <React.Fragment>
         <Wrapper>
-          <Img src="/static/TEDxBern.png" />
+          <a href={this.props.url} target="_blank">
+            <Img src="/static/TEDxBern.png" />
+          </a>
         </Wrapper>
       </React.Fragment>
     )

@@ -20,7 +20,7 @@ const InfoText = styled.p`
   font-weight: ${bold};
   line-height: 1.5;
 
-  background-color: #f3efaa;
+  background-color: #fff;
   color: #000;
 `
 const Addendum = styled.div`

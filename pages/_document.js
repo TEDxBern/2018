@@ -1,5 +1,6 @@
 import Document, {Head, Main, NextScript} from "next/document"
 import {ServerStyleSheet} from "styled-components"
+import {normal} from "../presentational/definitions"
 
 export default class SiteDocument extends Document {
   render() {
@@ -27,12 +28,19 @@ export default class SiteDocument extends Document {
               __html: `
             body {
               font-family: "Roboto", "Helvetica", sans-serif;
+              font-weight: ${normal};
 
-              background: linear-gradient(180deg, #F15F62 0%, #90D5E3 36.56%, #8BA3CF 66.37%, #FBB15E 100%);
+              /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f9ec7a+0,a4eddc+40,b8fbec+60,c769e3+100 */
+              background: rgb(249,236,122); /* Old browsers */
+              background: -moz-linear-gradient(top, rgba(249,236,122,1) 0%, rgba(164,237,220,1) 40%, rgba(184,251,236,1) 60%, rgba(199,105,227,1) 100%); /* FF3.6-15 */
+              background: -webkit-linear-gradient(top, rgba(249,236,122,1) 0%,rgba(164,237,220,1) 40%,rgba(184,251,236,1) 60%,rgba(199,105,227,1) 100%); /* Chrome10-25,Safari5.1-6 */
+              background: linear-gradient(to bottom, rgba(249,236,122,1) 0%,rgba(164,237,220,1) 40%,rgba(184,251,236,1) 60%,rgba(199,105,227,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+              filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9ec7a', endColorstr='#c769e3',GradientType=0 ); /* IE6-9 */
             }
             * {
               margin: 0;
               padding: 0;
+              font-weight: inherit;
             }
 
             a, a:visited {

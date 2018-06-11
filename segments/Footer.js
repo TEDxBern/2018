@@ -3,6 +3,7 @@ import Link from "next/link"
 import styled from "styled-components"
 
 import {Title, Segment, Speaker} from "../presentational"
+import {primary} from "../presentational/definitions"
 
 const Img = styled.img`
   width: 22px;
@@ -12,20 +13,24 @@ const Outer = styled.div`
   position: relative;
   z-index: 500;
 
-  margin-top: 240px;
-  padding: 32px 0 48px 0;
-  background-color: #000;
-  border-top: 4px solid #fff;
+  margin: 240px 0 -16px 0;
+  padding: 32px 0 64px 0;
+  background-color: #fff;
+  border-top: 4px solid #000;
+
+  transform: skew(0deg, 1deg);
 `
 const Inner = styled.div`
   max-width: 900px;
   margin: 0 auto;
   padding: 0 12px;
 
+  transform: skew(0deg, -1deg);
+
   p {
     padding-top: 16px;
 
-    color: #fff;
+    color: #000;
   }
 
   @media screen and (min-width: 660px) {
@@ -41,6 +46,12 @@ const Inner = styled.div`
 
       text-align: center;
     }
+  }
+`
+const A = styled.a`
+  &,
+  &:visited {
+    color: ${primary};
   }
 `
 
@@ -65,12 +76,9 @@ export class Footer extends React.Component {
               This independent TEDx event is operated under license from TED.
             </p>
             <p style={{width: 160}}>
-              <a
-                href="https://nginx-tedxbern-com-develop.ch.amazee.io/"
-                target="_blank"
-              >
+              <A href={this.props.texts.TedxBernLink} target="_blank">
                 Zurück zu TEDx Bern
-              </a>
+              </A>
             </p>
           </Inner>
         </Outer>

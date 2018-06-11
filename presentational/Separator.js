@@ -7,7 +7,8 @@ const Img = styled.img`
   width: 100%;
   height: 100%;
   pointer-events: none;
-  ${"" /* height: 250px; */};
+
+  margin-top: 200px;
 `
 
 injectGlobal`
