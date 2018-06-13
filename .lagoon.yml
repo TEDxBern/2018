@@ -1,0 +1,11 @@
+docker-compose-yaml: docker-compose.yml
+
+project: tedxbern-2018
+endpoint: api-lagoon-master.lagoon.ch.amazee.io:31472
+api: api-lagoon-master.lagoon.ch.amazee.io:80
+
+environments:
+  master:
+    routes:
+        - nginx:
+            - "2018-preview.tedxbern.com"
