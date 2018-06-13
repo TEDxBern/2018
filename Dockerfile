@@ -5,10 +5,10 @@ RUN yarn install --pure-lockfile
 FROM amazeeio/node:8
 COPY --from=builder /app/node_modules /app/node_modules
 COPY . /app/
-RUN fix-permissions /app/
 
 ENV NODE_ENV production
 RUN yarn build
+RUN fix-permissions /app/
 
 EXPOSE 3000
 CMD ["yarn", "dev"]
