@@ -14,7 +14,7 @@ x-environment:
 
 services:
   frontend:
-    command: yarn dev # this only applies for local development
+    command: yarn start # this only applies for local development
     build: # how to build the frontend
       context: .
       dockerfile: Dockerfile
