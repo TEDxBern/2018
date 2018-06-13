@@ -13,12 +13,10 @@ const Wrapper = styled.div`
   background-color: #fff;
   border-left: 3px solid black;
   border-bottom: 3px solid black;
-  transform: skew(0deg, 6deg);
 `
 
 const Img = styled.img`
   width: 200px;
-  transform: skew(0deg, -6deg);
 `
 
 export class Logo extends React.Component {
