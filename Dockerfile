@@ -9,8 +9,8 @@ COPY . /app/
 
 ENV NODE_ENV production
 
-RUN fix-permissions /app/.next
 RUN yarn build
+RUN fix-permissions /app/.next
 
 EXPOSE 3000
 CMD ["yarn", "start"]
