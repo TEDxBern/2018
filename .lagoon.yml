@@ -7,5 +7,5 @@ api: api-lagoon-master.lagoon.ch.amazee.io:80
 environments:
   master:
     routes:
-        - nginx:
+        - frontend:
             - "2018-preview.tedxbern.com"
