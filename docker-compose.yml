@@ -1,0 +1,34 @@
+version: '2.3'
+
+x-lagoon-project:
+  # Lagoon project name (leave `&lagoon-project` when you edit this)
+  &lagoon-project tedxbern-2018
+
+x-environment:
+  &default-environment
+    LAGOON_PROJECT: *lagoon-project
+    # Route that should be used locally
+    LAGOON_ROUTE: http://tedxbern-2018.docker.amazee.io
+    # Uncomment if you like to have the system behave like in production
+    #LAGOON_ENVIRONMENT_TYPE: production
+
+services:
+  frontend:
+    command: yarn dev # this only applies for local development
+    build: # how to build the frontend
+      context: .
+      dockerfile: Dockerfile
+    labels:
+      # Lagoon Labels
+      lagoon.type: node
+    environment:
+      << : *default-environment # loads the defined environment variables from the top
+      LAGOON_LOCALDEV_URL: frontend.docker.amazee.io
+      API: http://frontend.docker.amazee.io/graphql
+    networks:
+      - amazeeio-network
+      - default
+
+networks:
+  amazeeio-network:
+    external: true
