@@ -9,3 +9,4 @@ environments:
     routes:
         - frontend:
             - "2018-preview.tedxbern.com"
+            - "2018.tedxbern.com"
