@@ -10,6 +10,7 @@ export default class SiteDocument extends Document {
     return (
       <html>
         <Head>
+          <title>TEDxBern 2018 - ÄS GIT NÜT WOS NID GIT</title>
           <meta charSet="utf-8" />
           <meta
             name="viewport"
