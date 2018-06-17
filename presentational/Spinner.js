@@ -10,7 +10,6 @@ const Fullsize = styled.div`
   left: 0px;
   width: 100%;
   height: 100%;
-  z-index: 500;
   opacity: ${props => props.opacity};
   transition: opacity 2s ease;
 
