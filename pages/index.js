@@ -184,11 +184,17 @@ export default class extends Component {
             )}
           />
 
-          {showSpeakers && (
+          {showSpeakers ? (
             <>
               <Separator2 flipped={!showSpeakers} style={{marginTop: -400}} />
               <Title>Speakers</Title>
               <Speakers />
+            </>
+          ) : (
+            <>
+              <Separator2 flipped={!showSpeakers} style={{marginTop: -400}} />
+              <Title>Speakers</Title>
+              <Text text={<em>Äs chunnt gli, häbet chli Geduld…</em>} />
             </>
           )}
 
