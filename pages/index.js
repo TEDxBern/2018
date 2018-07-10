@@ -150,34 +150,37 @@ export default class extends Component {
     locale: "de"
   }
   render() {
-    const {textsLoaded, imagesLoaded} = this.state
+    const {textsLoaded, imagesLoaded, locale} = this.state
     const everythingLoaded = textsLoaded && imagesLoaded
-    return (
-      <>
-        <Logo url={textsLoaded && this.state.texts.TedxBernLink} />
-        {everythingLoaded && (
-          <LogoBanner>
-            <LocaleSwitcher
-              locale={this.state.locale === "de" ? "en" : "de"}
-              onClick={() =>
-                this.setState(state => ({
-                  locale: state.locale === "de" ? "en" : "de"
-                }))
-              }
-            />
-          </LogoBanner>
-        )}
-        <Spinner show={!everythingLoaded} />
-        {everythingLoaded ? this.renderLoaded() : this.renderLoading()}
-      </>
-    )
-  }
-  renderLoaded() {
-    const {images, locale} = this.state
     let texts = {}
     Object.keys(this.state.texts).forEach(entry => {
       texts[entry] = this.state.texts[entry][locale]
     })
+    const showLocaleSwitcher = texts.ShowLanguageSwitcher === "yes"
+    return (
+      <>
+        <Logo url={textsLoaded && texts.TedxBernLink} />
+        {everythingLoaded && (
+          <LogoBanner>
+            {showLocaleSwitcher && (
+              <LocaleSwitcher
+                locale={this.state.locale === "de" ? "en" : "de"}
+                onClick={() =>
+                  this.setState(state => ({
+                    locale: state.locale === "de" ? "en" : "de"
+                  }))
+                }
+              />
+            )}
+          </LogoBanner>
+        )}
+        <Spinner show={!everythingLoaded} />
+        {everythingLoaded ? this.renderLoaded(texts) : this.renderLoading()}
+      </>
+    )
+  }
+  renderLoaded(texts) {
+    const {images} = this.state
     const showSpeakers = texts.SpeakersAnzeigen === "yes"
     return (
       <ParallaxProvider>
@@ -210,7 +213,7 @@ export default class extends Component {
             <>
               <Separator2 flipped={!showSpeakers} style={{marginTop: -400}} />
               <Title>Speakers</Title>
-              <Speakers />
+              <Speakers locale={this.state.locale} />
             </>
           ) : (
             <>

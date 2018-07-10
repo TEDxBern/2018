@@ -59,13 +59,16 @@ const Bio = styled.p`
 
 export class Speaker extends React.Component {
   render() {
+    const title = this.props.title[this.props.locale]
+    const bio = this.props.bio[this.props.locale]
+
     return (
       <Wrapper>
         {this.props.images && <Portrait src={this.props.images[0].url} />}
         <Info>
           <InfoTitle>{this.props.name}</InfoTitle>
-          {this.props.title && <JobTitle>{this.props.title}</JobTitle>}
-          <Bio>{this.props.bio}</Bio>
+          {title && <JobTitle>{title}</JobTitle>}
+          <Bio>{bio}</Bio>
           {this.props.link && (
             <div>
               <Button target="_blank" href={this.props.link}>

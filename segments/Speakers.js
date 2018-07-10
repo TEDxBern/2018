@@ -8,6 +8,7 @@ import {Title, Segment, Speaker} from "../presentational"
 
 export class Speakers extends React.Component {
   render() {
+    const {locale} = this.props
     return (
       <React.Fragment>
         <Segment>
@@ -18,9 +19,16 @@ export class Speakers extends React.Component {
               records.map((record, index) => (
                 <Speaker
                   key={index}
+                  locale={locale}
                   name={record.get("Name")}
-                  title={record.get("Job Title")}
-                  bio={record.get("Short Bio")}
+                  title={{
+                    de: record.get("Job Title"),
+                    en: record.get("Job Title EN")
+                  }}
+                  bio={{
+                    de: record.get("Short Bio"),
+                    en: record.get("Short Bio EN")
+                  }}
                   images={record.get("Portrait") || false}
                   link={record.get("Link")}
                 />
