@@ -3,7 +3,11 @@ import styled from "styled-components"
 import {ParallaxProvider} from "react-scroll-parallax"
 
 import {Text, Venue, Speakers, Footer} from "../segments"
-import {RetrieveAirtableRecords, TriggerParallaxUpdate} from "../container"
+import {
+  RetrieveAirtableRecords,
+  TriggerParallaxUpdate,
+  LocaleSwitcher
+} from "../container"
 import {
   HeaderMotiv,
   Segment,
@@ -23,12 +27,14 @@ const LogoBanner = styled.div`
 
   top: -80px;
   width: 100%;
-  height: 160px;
+  height: 153px;
+
+  text-align: right;
 
   background-color: #f9ec7a;
   border-bottom: 3px solid #000;
 
-  transform: skew(0deg, -1deg);
+  transform: skew(0deg, 1deg);
 
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f9ec7a+0,a4eddc+100 */
   background: rgb(249, 236, 122); /* Old browsers */
@@ -140,7 +146,8 @@ export default class extends Component {
     texts: {},
     textsLoaded: false,
     images: {},
-    imagesLoaded: false
+    imagesLoaded: false,
+    locale: "de"
   }
   render() {
     const {textsLoaded, imagesLoaded} = this.state
@@ -148,14 +155,29 @@ export default class extends Component {
     return (
       <>
         <Logo url={textsLoaded && this.state.texts.TedxBernLink} />
-        {everythingLoaded && <LogoBanner />}
+        {everythingLoaded && (
+          <LogoBanner>
+            <LocaleSwitcher
+              locale={this.state.locale}
+              onClick={() =>
+                this.setState(state => ({
+                  locale: state.locale === "de" ? "en" : "de"
+                }))
+              }
+            />
+          </LogoBanner>
+        )}
         <Spinner show={!everythingLoaded} />
         {everythingLoaded ? this.renderLoaded() : this.renderLoading()}
       </>
     )
   }
   renderLoaded() {
-    const {texts, images} = this.state
+    const {images, locale} = this.state
+    let texts = {}
+    Object.keys(this.state.texts).forEach(entry => {
+      texts[entry] = this.state.texts[entry][locale]
+    })
     const showSpeakers = texts.SpeakersAnzeigen === "yes"
     return (
       <ParallaxProvider>
@@ -194,7 +216,7 @@ export default class extends Component {
             <>
               <Separator2 flipped={!showSpeakers} style={{marginTop: -400}} />
               <Title>Speakers</Title>
-              <Text text={<em>Äs chunnt gli, häbet chli Geduld…</em>} />
+              <Text text={<em>{texts.SpeakersComingSoon}</em>} />
             </>
           )}
 
@@ -220,7 +242,10 @@ export default class extends Component {
               texts: records.reduce(
                 (accumulator, record) => ({
                   ...accumulator,
-                  [record.get("Name")]: record.get("Text")
+                  [record.get("Name")]: {
+                    de: record.get("Text"),
+                    en: record.get("Text EN")
+                  }
                 }),
                 {}
               )

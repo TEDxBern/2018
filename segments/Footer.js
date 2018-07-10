@@ -77,7 +77,7 @@ export class Footer extends React.Component {
             </p>
             <p style={{width: 160}}>
               <A href={this.props.texts.TedxBernLink} target="_blank">
-                Zurück zu TEDx Bern
+                {this.props.texts.TedxBernTitle}
               </A>
             </p>
           </Inner>
