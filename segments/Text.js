@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   color: black;
 `
 const InfoText = styled.p`
-  padding: 16px;
+  padding: ${props => (props.noPadding ? "0" : "16px")};
 
   font-size: 18px;
   font-weight: ${bold};
@@ -37,7 +37,9 @@ export class Text extends React.Component {
     return (
       <Segment {...this.props}>
         <Wrapper {...this.props}>
-          <InfoText>{this.props.text}</InfoText>
+          <InfoText noPadding={this.props.noPadding}>
+            {this.props.text}
+          </InfoText>
           {this.props.addendum && <Addendum>{this.props.addendum()}</Addendum>}
         </Wrapper>
       </Segment>

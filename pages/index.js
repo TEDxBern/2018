@@ -158,7 +158,7 @@ export default class extends Component {
         {everythingLoaded && (
           <LogoBanner>
             <LocaleSwitcher
-              locale={this.state.locale}
+              locale={this.state.locale === "de" ? "en" : "de"}
               onClick={() =>
                 this.setState(state => ({
                   locale: state.locale === "de" ? "en" : "de"
@@ -219,6 +219,22 @@ export default class extends Component {
               <Text text={<em>{texts.SpeakersComingSoon}</em>} />
             </>
           )}
+
+          <Title>Partner</Title>
+          <Text
+            noPadding
+            text={
+              <em>
+                <a
+                  style={{display: "block", padding: "16px"}}
+                  href={texts.PartnerLink}
+                  target="_blank"
+                >
+                  {texts.PartnerText}
+                </a>
+              </em>
+            }
+          />
 
           <Title>Venue</Title>
           <Separator2 flipped={showSpeakers} />

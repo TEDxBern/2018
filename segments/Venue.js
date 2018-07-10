@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import {Segment} from "../presentational"
+import {Segment, Button} from "../presentational"
 import {bold} from "../presentational/definitions"
 
 const Wrapper = styled.div`
@@ -42,7 +42,13 @@ export class Venue extends React.Component {
         <Wrapper>
           <Image src={images.LocationBild} />
           <InfoTitle>{texts.LocationTitle}</InfoTitle>
-          <InfoText>{texts.LocationBeschreibung}</InfoText>
+          <InfoText>
+            {texts.LocationBeschreibung}
+            <br />
+            <Button href={texts.VenueMapLink} target="_blank">
+              {texts.VenueMapTitle}
+            </Button>
+          </InfoText>
         </Wrapper>
       </Segment>
     )
