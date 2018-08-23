@@ -203,7 +203,7 @@ export default class extends Component {
             addendum={() => (
               <p>
                 <Button href={texts.TicketingLink} target="_blank">
-                  Hier Tickets reservieren
+                  We are fully booked
                 </Button>
               </p>
             )}
