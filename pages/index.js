@@ -141,6 +141,34 @@ const Wrapper = styled.div`
   height: 100%;
 `
 
+const LiveStream = ({id}) => (
+  <div
+    style={{
+      position: "relative",
+      paddingBottom: "56.25%",
+      paddingTop: "30px",
+      height: 0,
+      overflow: "hidden"
+    }}
+  >
+    <iframe
+      width="560"
+      height="315"
+      src={`https://www.youtube.com/embed/${id}`}
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%"
+      }}
+    />
+  </div>
+)
+
 export default class extends Component {
   state = {
     texts: {},
@@ -182,6 +210,7 @@ export default class extends Component {
   renderLoaded(texts) {
     const {images} = this.state
     const showSpeakers = texts.SpeakersAnzeigen === "yes"
+    const liveStream = texts.LiveStreamYoutubeId
     return (
       <ParallaxProvider>
         <Wrapper>
@@ -200,13 +229,17 @@ export default class extends Component {
           </EventInfos>
           <Text
             text={texts.IntroText}
-            addendum={() => (
-              <p>
-                <Button href={texts.TicketingLink} target="_blank">
-                  We are fully booked
-                </Button>
-              </p>
-            )}
+            addendum={() =>
+              liveStream ? (
+                <LiveStream id={liveStream} />
+              ) : (
+                <p>
+                  <Button href={texts.TicketingLink} target="_blank">
+                    We are fully booked
+                  </Button>
+                </p>
+              )
+            }
           />
 
           {showSpeakers ? (
